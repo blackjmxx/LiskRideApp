@@ -1,0 +1,86 @@
+* {
+  box-sizing: border-box;
+}
+
+::-moz-focus-inner {
+  padding: 0;
+  border: none;
+}
+
+:focus {
+  outline: 0;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+main,
+li {
+  display: block;
+}
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+table {
+  width: 100%;
+  max-width: 100%;
+  text-align: left;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+th, td {
+  padding: 0;
+}
+
+p {
+  margin: 0;
+}
+
+a,
+button,
+input,
+label,
+select,
+textarea {
+  touch-action: manipulation;
+}
+
+input,
+button {
+  overflow: visible;
+}
+a {
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  border: none;
+}
+
+input,
+textarea {
+  margin: 0;
+  font: inherit;
+  appearance: none;
+}
+
+textarea {
+  resize: vertical;
+}
+
+svg {
+  display: block;
+  fill: currentColor;
+}
