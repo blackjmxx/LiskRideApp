@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { passphrase, cryptography, Buffer } from '@liskhq/lisk-client';
+import { passphrase, cryptography } from '@liskhq/lisk-client';
 import LoginTab from "./LoginTab/LoginTab";
 import RegisterTab from "./RegisterTab/RegisterTab";
 

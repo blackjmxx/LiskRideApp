@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Menubar from "../../components/MenuBar/Menubar";
 import { api } from "../../components/Api";
 import personImg from "../../assets/images/person.svg";
-import StartTavelTransaction from "../../transactions/start-travel";
+import StartTavelTransaction from "lisk-ride-transactions/start-travel";
 import { networkIdentifier , dateToLiskEpochTimestamp} from "../../utils";
 import { Redirect } from "react-router-dom";
 import GlobalRequireAuth from "../../pages/SettingsPage/GlobalRequireAuth";

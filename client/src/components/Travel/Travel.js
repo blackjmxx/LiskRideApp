@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { ContentContainer, AnimatedImage, ImageContainer, TitleContainer } from "./style"
 import {
     Input,
     ToggleButtonContainer,

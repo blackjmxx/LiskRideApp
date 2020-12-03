@@ -1,10 +1,10 @@
 const { Application, genesisBlockDevnet, configDevnet } = require('lisk-sdk');
 
-const AddAccountInfoTransaction = require('../transactions/add-account-info');
-const RegisterTravelTransaction = require('../transactions/register-travel');
-const BookTravelTransaction = require('../transactions/book-travel');
-const StartTravelransaction = require('../transactions/start-travel');
-const EndTravelTransaction = require('../transactions/end-travel');
+const AddAccountInfoTransaction = require('./transactions/add-account-info');
+const RegisterTravelTransaction = require('./transactions/register-travel');
+const BookTravelTransaction = require('./transactions/book-travel');
+const StartTravelransaction = require('./transactions/start-travel');
+const EndTravelTransaction = require('./transactions/end-travel');
 
 const { ExtendedHTTPApiModule } = require('@moosty/lisk-extended-api');
 

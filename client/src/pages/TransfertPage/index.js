@@ -43,7 +43,7 @@ class TransfertPage extends Component {
   handleTransfert = (event) => {
     this.setState({isLoading:true})
     let user = JSON.parse(getUser());
-
+    
     try {
         const fundTransaction = new TransferTransaction({
             asset: {
@@ -52,7 +52,6 @@ class TransfertPage extends Component {
             },
             networkIdentifier: networkIdentifier,
         });
-
         fundTransaction.sign("creek own stem final gate scrub live shallow stage host concert they");
         
         api.transactions.broadcast(fundTransaction.toJSON()).then(response => {        

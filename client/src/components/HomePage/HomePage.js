@@ -24,9 +24,6 @@ import {
   Image,
 } from "../../components/common/styles";
 
-import {
-  HomeContainer,
-} from "../../components/common/styles";
 import GlobalRequireAuth from "../../pages/SettingsPage/GlobalRequireAuth";
 import { FormattedMessage, injectIntl } from "react-intl";
 

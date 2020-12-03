@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import Menubar from "../../components/MenuBar/Menubar";
 import { api } from "../../components/Api";
 import closeIcon from "../../assets/icons/closeIcon.svg";
-import BookTravelTransaction from "../../transactions/book-travel";
+import BookTravelTransaction from "lisk-ride-transactions/book-travel";
 import { getUser } from "../../utils/storage";
 import { networkIdentifier , dateToLiskEpochTimestamp} from "../../utils";
 import BookModal from "../../components/BookModal/BookModal";
