@@ -53,10 +53,10 @@ class HomePage extends Component {
       `https://lisk-ride.com/api/accounts?asset=destination&contains=${destination}`
     );
     let pickUpLocationP = fetch(
-      `https://lisk-ride.com/api/extended-api/accounts?asset=pickUpLocation&contains=${pickUpLocation}`
+      `https://lisk-ride.com/api/accounts?asset=pickUpLocation&contains=${pickUpLocation}`
     );
     let pickUpDateP = fetch(
-      `https://lisk-ride.com/api/extended-api/accounts?asset=pickUpDate&contains=${pickUpDate}`
+      `https://lisk-ride.com/api/accounts?asset=pickUpDate&contains=${pickUpDate}`
     );
 
     var search = {
