@@ -105,6 +105,43 @@ class HomePage extends Component {
       });
   };
 
+  searchAll = () => {    
+
+    const travels = [];
+
+    this.setState({isLoading:true})
+    let destinationP = fetch(
+      `https://lisk-ride.com/api/accounts?asset=destination`
+    );
+    Promise.all([
+      destinationP,
+    ])
+      .then((values) => {
+        let promises = [];
+        values.forEach((value) => {
+          promises.push(value.json());
+        });
+        Promise.all(promises).then((values) => {
+          values.forEach((value) => {
+            console.log(value);
+            
+            value.data.forEach((v) => travels.push({travelId:v.id, carId:v.carId,...v.asset}));
+          });
+          
+          let results = travels;
+          this.setState({isLoading:false})
+          
+          let uniquResult = _.uniqBy(results, 'travelId');
+          this.props.updateTravels({travels:uniquResult})         
+          this.props.history.push("/home/results");
+        });
+      })
+      .catch((reason) => {
+        this.setState({isLoading:false})
+        console.log(reason);
+      });
+  };
+
   handleChange = (value) => {
     if (value.name === "destination" || value.name === "pickUpLocation") {
       this.setState({ [value.name]: value.data.suggestion.name });
@@ -202,11 +239,16 @@ class HomePage extends Component {
               </SecondInputContainer>
 
               <ButtonContainer>
+              <BlueButtonLoading
+                  isLoading={this.state.isLoading}
+                  onClick={() => this.handleForm()}>
+                  <FormattedMessage id={"global.search"} />
+                </BlueButtonLoading>
                 <BlueButtonLoading
                   isLoading={this.state.isLoading}
-                  onClick={() => this.handleForm()}
+                  onClick={() => this.searchAll()}
                 >
-                  <FormattedMessage id={"global.search"} />
+                  <FormattedMessage id={"global.all"} />
                 </BlueButtonLoading>
               </ButtonContainer>
             </Container>
