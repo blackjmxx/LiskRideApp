@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import CalendarModal from "../../components/CalendarModal/CalendarModal";
 import { getUser } from "../../utils/storage";
 import { Rating, Button } from 'semantic-ui-react'
-import EndTravelTransaction from "lisk-ride-transactions/end-travel";
+import EndTravelTransaction from "../../transactions/end-travel";
 import { networkIdentifier , dateToLiskEpochTimestamp} from "../../utils";
 
 import {

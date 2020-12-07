@@ -10,7 +10,7 @@ import {
   IconContainer
 } from "../../components/common/styles";
 import { networkIdentifier , dateToLiskEpochTimestamp} from "../../utils";
-import AddAccountInfoTransaction from "lisk-ride-transactions/add-account-info";
+import AddAccountInfoTransaction from "../../transactions/add-account-info";
 import { api } from '../../components/Api';
 import BlueButtonLoading from "../../components/Buttons/BlueButtonLoading";
 import "react-calendar/dist/Calendar.css";

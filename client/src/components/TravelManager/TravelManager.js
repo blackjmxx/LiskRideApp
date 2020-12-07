@@ -20,7 +20,7 @@ import {
 import { api } from '../../components/Api';
 
 import BlueButtonLoading from "../../components/Buttons/BlueButtonLoading";
-import RegisterTravelTransaction from "lisk-ride-transactions/register-travel";
+import RegisterTravelTransaction from "../../transactions/register-travel";
 
 import "react-calendar/dist/Calendar.css";
 import "./style/calendar.css";

@@ -50,13 +50,13 @@ class HomePage extends Component {
 
     this.setState({isLoading:true})
     let destinationP = fetch(
-      `https://lisk-ride.com/api/accounts?asset=destination&contains=${destination}`
+      `http://localhost:2020/extended-api/accounts?asset=destination&contains=${destination}`
     );
     let pickUpLocationP = fetch(
-      `https://lisk-ride.com/api/accounts?asset=pickUpLocation&contains=${pickUpLocation}`
+      `http://localhost:2020/extended-api/accounts?asset=pickUpLocation&contains=${pickUpLocation}`
     );
     let pickUpDateP = fetch(
-      `https://lisk-ride.com/api/accounts?asset=pickUpDate&contains=${pickUpDate}`
+      `http://localhost:2020/extended-api/accounts?asset=pickUpDate&contains=${pickUpDate}`
     );
 
     var search = {
@@ -111,7 +111,7 @@ class HomePage extends Component {
 
     this.setState({isLoading:true})
     let destinationP = fetch(
-      `https://lisk-ride.com/api/accounts?asset=destination`
+      `http://localhost:2020/extended-api/accounts?asset=destination`
     );
     Promise.all([
       destinationP,
