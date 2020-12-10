@@ -1,5 +1,6 @@
 {
   "en": {
+    "book.succeed":"Book travel succeed",
     "paramsPage.progressSaved":"Configuration is saved",
     "paramsPage.address":"Address",
     "paramsPage.balance":"Balance",
@@ -26,6 +27,7 @@
     "travel.onlyFrance":"Localtion not correctly selected, only France cities are available",
     "travel.emptySeatTitle":"You dont't have any booked seats",
     "travel.emptySeatDescription":"We will let you know when you will have!",
+    "travel.startSucceed":"Start travel succeed",
     "global.yes":"Yes",
     "global.cancel":"Cancel",
     "global.close":"Close",

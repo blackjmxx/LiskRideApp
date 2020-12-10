@@ -39,7 +39,10 @@ class TravelPage extends Component {
     newTravel: undefined,
     mytravels: [],
     showTravelModal:false,
-    selectedTravel:-1
+    selectedTravel:-1,
+    isLoading:false,
+    errors:[],
+    isTravelStartSucceed:false
   };
 
   todayNotifications = [
@@ -68,22 +71,22 @@ class TravelPage extends Component {
     api.accounts
       .get({ address: user.address })
       .then((response) => {
-        this.setState({ mytravels: response.data[0].asset.passengerTravels || []});
+        this.setState({ mytravels: response.data[0].asset.passengerTravels || [], isLoading:false});
       })
       .catch((err) => {
+        this.setState({isLoading:false})
         console.log(JSON.stringify(err.errors, null, 2));
       });
   }
 
   handleOpenTravelModal = (id, travelIndex) => {
-    this.setState({selectedTravel:travelIndex})
-    this.setState({showTravelModal:true})
+    this.setState({selectedTravel:travelIndex, showTravelModal:true, errors:[], isTravelStartSucceed:false})
   }
   
   handleTravelAction= () => {
     
+    this.setState({isLoading:true})
     let user = JSON.parse(getUser());
-    
     const { mytravels, selectedTravel } = this.state;
     
     const startTavelTransaction = new StartTavelTransaction({
@@ -98,18 +101,22 @@ class TravelPage extends Component {
     startTavelTransaction.sign(user.passphrase);
     api.transactions
       .broadcast(startTavelTransaction.toJSON())
-      .then((response) => {;
-        console.log(response.data);
-        this.setState({ showTravelModal: false })
+      .then((response) => {
+        this.setState({isLoading:false, isTravelStartSucceed:true})
       })
       .catch((err) => {
-        console.log(JSON.stringify(err.errors, null, 2));
+        if(!Array.isArray(err.errors)){
+          this.setState({ isLoading: false, errors: [err] });
+        } else {
+          this.setState({ isLoading: false, errors: err.errors });
+        }
       });
   }
 
 
   render() {
-    const { mytravels, selectedTravel } = this.state;
+    const { mytravels, selectedTravel, isLoading , isTravelStartSucceed} = this.state;
+    const errors = this.state.errors.map((e, index) => <p key={index}>{e.message}</p>);
     return (
       <GlobalRequireAuth {...this.props}>
       <NotificationsViewContainer>
@@ -118,6 +125,9 @@ class TravelPage extends Component {
             closeModal={() => this.setState({ showTravelModal: false })}
             travel={mytravels[selectedTravel]}
             handleAction={this.handleTravelAction}
+            isLoading={isLoading}
+            errors={errors}
+            isTravelStartSucceed={isTravelStartSucceed}
           ></TravelModal>
           )}
           <ItemsContainer>

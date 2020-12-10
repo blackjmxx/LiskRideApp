@@ -12,7 +12,6 @@ import {
   SecondInputContainer,
   ErrorContainer,
   ErrorInformationContent,
-  SuccesContainer,
   SuccessInformationContent,
 } from "../../components/common/styles";
 import { Select } from "semantic-ui-react";

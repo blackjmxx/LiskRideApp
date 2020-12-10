@@ -85,7 +85,6 @@ class TravelResuls extends Component {
           this.setState({isBookingLoading:false, isBookSucceed:true})
         })
         .catch((err) => {
-          debugger
           if(!Array.isArray(err.errors)){
             this.setState({ isBookingLoading: false, errors: [err] });
           } else {
