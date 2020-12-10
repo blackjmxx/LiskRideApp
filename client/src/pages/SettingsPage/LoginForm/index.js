@@ -2,10 +2,15 @@ import React, { Component } from "react";
 import { passphrase, cryptography } from '@liskhq/lisk-client';
 import LoginTab from "./LoginTab/LoginTab";
 import RegisterTab from "./RegisterTab/RegisterTab";
+import {
+  ErrorContainer,
+  ErrorInformationContent
+} from "../../../components/common/styles";
 
 import "./styles.css";
 import { LoginRegisterHeader } from "../../../components/LoginRegisterHeader/LoginRegisterHeader";
-import {LoginViewContainer, BottomLoginContainer, ErrorInformationContent, ErrorContainer, LoginContainer, IconContainer, WarningIcon, WarningImageContainer, WarningText, WarningContentContainer, PersonIcon } from "./style";
+import {LoginViewContainer, BottomLoginContainer, LoginContainer, IconContainer, WarningIcon, WarningImageContainer, WarningText, WarningContentContainer, PersonIcon } from "./style";
+
 import MenuBar from '../../../components/MenuBar/Menubar';
 import warningIcon from '../../../assets/icons/warningIcon.svg';
 import personImg from '../../../assets/images/person.svg';

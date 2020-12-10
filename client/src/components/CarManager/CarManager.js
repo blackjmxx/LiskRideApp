@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { getUser } from "../../utils/storage";
-
+import { receiveUserLogIn, loadUserBalance } from '../../modules/settings/actions'
 import {
   Input,
   SecondInputContainer,
@@ -25,8 +25,18 @@ import { connect } from "react-redux";
 class CarManager extends Component {
   state = {
     value: new Date(),
+    isLoading:false,
+    carModel:undefined,
+    numberPlate:undefined,
+    email:undefined
   };
-  componentDidMount() {}
+  componentDidMount = () => {
+    let user = JSON.parse(getUser());
+    if (getUser()) {
+      this.props.receiveUserLogIn(JSON.parse(getUser()));
+      this.props.loadUserBalance(user.address)
+    }
+  };
 
   handleChange = (e) => {
     this.setState({
@@ -35,15 +45,15 @@ class CarManager extends Component {
   }
 
   handleCreate = () => {
+    this.setState({isLoading:true});
     const {numberPlate,carModel, email} = this.state;
-    // check email
     let user = JSON.parse(getUser());
     const registerCarTransaction = new AddAccountInfoTransaction({
       asset: {
         carId : user.address,
-        numberPlate,
-        carModel,
-        email
+        numberPlate: numberPlate || this.props.user.numberPlate,
+        carModel: carModel || this.props.user.carModel,
+        email: email || this.props.user.email,
       },
       networkIdentifier: networkIdentifier,
       timestamp: dateToLiskEpochTimestamp(new Date()),
@@ -54,15 +64,20 @@ class CarManager extends Component {
     api.transactions
       .broadcast(registerCarTransaction.toJSON())
       .then((response) => {
+        this.setState({isLoading:false});
         console.log(response.data);
       })
       .catch((err) => {
+        this.setState({isLoading:false});
         console.log(JSON.stringify(err.errors, null, 2));
       });
   }
 
   render() {
-    debugger
+    const email = this.state.email ||this.props.user.email;
+    const numberPlate = this.state.numberPlate ||this.props.user.numberPlate;
+    const carModel = this.state.carModel ||this.props.user.carModel;
+
     return (
       <CommonContainerView>
         <Link to="/home/params">
@@ -76,7 +91,7 @@ class CarManager extends Component {
               name="email"
               type={"email"}
               onChange={this.handleChange}
-              value={this.state.email}
+              value={email}
               placeholder="Email"
             />
           </SecondInputContainer>
@@ -85,7 +100,7 @@ class CarManager extends Component {
               name="numberPlate"
               type={"text"}
               onChange={this.handleChange}
-              value={this.state.numberPlate}
+              value={numberPlate}
               placeholder="Number plate"
             />
           </SecondInputContainer>
@@ -94,13 +109,13 @@ class CarManager extends Component {
               name="carModel"
               type={"text"}
               onChange={this.handleChange}
-              value={this.state.carModel}
+              value={carModel}
               placeholder="Car model"
             />
           </SecondInputContainer>
           <ButtonContainer>
             <BlueButtonLoading
-              isLoading={this.state.loading}
+              isLoading={this.state.isLoading}
               onClick={() => this.handleCreate()}
             >
               <FormattedMessage id={"global.update"} />
@@ -115,12 +130,15 @@ class CarManager extends Component {
 const mapStateTopProps = (state) => {
   return {
     error: state.home.error,
+    user: state.settings.user || {},
     isValidationSucceed: state.home.isValidationSucceed,
     hasValue: state.home.hasValue,
   };
 };
 
 const mapActionCreators = {
-};
+  receiveUserLogIn,
+  loadUserBalance
+}
 
 export default connect(mapStateTopProps, mapActionCreators)(CarManager);

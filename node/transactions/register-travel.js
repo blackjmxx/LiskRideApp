@@ -90,6 +90,13 @@ class RegisterTravelransaction extends BaseTransaction {
         )
       );
     }
+    if (this.asset.destination === this.asset.pickUpLocation) {
+      errors.push(
+        new TransactionError(
+          'Destination and PickUpLocation must be different'
+        )
+      );
+    }
     return errors;
   }
 

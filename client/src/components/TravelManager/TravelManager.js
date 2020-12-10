@@ -3,9 +3,9 @@ import AlgoliaPlaces from "algolia-places-react";
 import CalendarModal from "../../components/CalendarModal/CalendarModal";
 import Moment from "moment";
 import { connect } from "react-redux";
-import { passphrase, cryptography } from '@liskhq/lisk-client';
+import { passphrase, cryptography } from "@liskhq/lisk-client";
 import { getUser } from "../../utils/storage";
-import { networkIdentifier , dateToLiskEpochTimestamp} from "../../utils";
+import { networkIdentifier, dateToLiskEpochTimestamp } from "../../utils";
 
 import {
   Input,
@@ -15,9 +15,11 @@ import {
   Container,
   ButtonContainer,
   IconContainer,
-  Icon
+  Icon,
+  ErrorContainer,
+  ErrorInformationContent
 } from "../../components/common/styles";
-import { api } from '../../components/Api';
+import { api } from "../../components/Api";
 
 import BlueButtonLoading from "../../components/Buttons/BlueButtonLoading";
 import RegisterTravelTransaction from "../../transactions/register-travel";
@@ -43,13 +45,15 @@ class TravelManager extends Component {
     pricePerSeat: 0,
     value: new Date(),
     showCalendarModal: false,
-    loading:false,
-    error:{}
+    isLoading: false,
+    errors: [],
+    errorLocation:undefined,
   };
 
   componentDidMount() {}
 
   handleChange = (value) => {
+    this.setState({errorLocation:undefined})
     if (value.name === "destination" || value.name === "pickUpLocation") {
       this.setState({ [value.name]: value.data.suggestion.name });
       return;
@@ -62,21 +66,37 @@ class TravelManager extends Component {
   };
 
   addTravel = () => {
-    this.setState({loading:true})
-    const { pickUpLocation, pickUpDate, availableSeatCount, pricePerSeat, destination} = this.state;
+    const {
+      pickUpLocation,
+      pickUpDate,
+      availableSeatCount,
+      pricePerSeat,
+      destination,
+    } = this.state;
 
+    if(!destination){
+      this.setState({errorLocation:"destination"})
+      return
+    }
+    if(!pickUpLocation ){
+      this.setState({errorLocation:"pick Up Location"})
+      return
+    }
+    this.setState({ isLoading: true });
     let registerpassphrase = passphrase.Mnemonic.generateMnemonic();
-    const { address } = cryptography.getAddressAndPublicKeyFromPassphrase(registerpassphrase);
+    const { address } = cryptography.getAddressAndPublicKeyFromPassphrase(
+      registerpassphrase
+    );
     let user = JSON.parse(getUser());
     const registerTravelTransaction = new RegisterTravelTransaction({
       asset: {
-        carId : user.address,
-        travelId:address,
+        carId: user.address,
+        travelId: address,
         pickUpLocation,
         destination,
         pickUpDate,
         availableSeatCount,
-        pricePerSeat
+        pricePerSeat,
       },
       networkIdentifier: networkIdentifier,
       timestamp: dateToLiskEpochTimestamp(new Date()),
@@ -85,25 +105,26 @@ class TravelManager extends Component {
     registerTravelTransaction.sign(user.passphrase);
     api.transactions
       .broadcast(registerTravelTransaction.toJSON())
-      .then((response) => {;
-        this.setState({loading:false})
+      .then((response) => {
+        this.setState({ isLoading: false });
         this.props.history.push("/home/travel");
       })
       .catch((err) => {
-        this.setState({loading:false, error:err})
-        console.log(JSON.stringify(err.errors, null, 2));
+        this.setState({ isLoading: false, errors: err.errors });
       });
-  }
+  };
 
   render() {
+    const errors = this.state.errors.map((e, index) => <p key={index}>{e.message}</p>);
+
     return (
       <CommonContainerView>
         {this.state.showCalendarModal && (
           <CalendarModal
-            closeModal={() => this.setState({ showCalendarModal: false })}
-            handleChange={(data) =>
-              this.handleChange({ name: "pickUpDate", data })
-            }
+            handleChange={(data) => {
+              this.handleChange({ name: "pickUpDate", data });
+              this.setState({ showCalendarModal: false });
+            }}
           ></CalendarModal>
         )}
         <Link to="/home/travel">
@@ -112,6 +133,16 @@ class TravelManager extends Component {
           </IconContainer>
         </Link>
         <Container>
+        { this.state.errorLocation && <ErrorContainer>
+          <ErrorInformationContent>
+            <b><FormattedMessage id={"travel.onlyFrance"} />: {this.state.errorLocation}</b> 
+          </ErrorInformationContent>
+        </ErrorContainer>}
+        { this.state.errors && <ErrorContainer>
+          <ErrorInformationContent>
+            {errors}
+          </ErrorInformationContent>
+        </ErrorContainer>}
           <SecondInputContainer>
             <AlgoliaPlaces
               key="destinationId"
@@ -127,11 +158,7 @@ class TravelManager extends Component {
               onChange={(data) =>
                 this.handleChange({ name: "destination", data: data })
               }
-              onError={({ message }) =>
-                console.log(
-                  "Fired when we could not make the request to Algolia Places servers for any reason but reaching your rate limit."
-                )
-              }
+              onClear={() => this.handleChange({ name: "destination", data: {suggestion:{name:undefined}}})}
             />
           </SecondInputContainer>
           <SecondInputContainer>
@@ -149,6 +176,7 @@ class TravelManager extends Component {
               onChange={(data) =>
                 this.handleChange({ name: "pickUpLocation", data: data })
               }
+              onClear={() => this.handleChange({ name: "pickUpLocation", data: {suggestion:{name:undefined}}})}
             />
           </SecondInputContainer>
           <SecondInputContainer>
@@ -171,9 +199,7 @@ class TravelManager extends Component {
               value={this.state.pricePerSeat}
               placeholder="Price per seat"
             />
-            <ToggleButtonContainer>
-             LSK
-            </ToggleButtonContainer>
+            <ToggleButtonContainer>LSK</ToggleButtonContainer>
           </SecondInputContainer>
           <SecondInputContainer>
             <Input
@@ -190,8 +216,8 @@ class TravelManager extends Component {
           </SecondInputContainer>
           <ButtonContainer>
             <BlueButtonLoading
-              isLoading={this.state.loading}
-              onClick={() => this.addTravel()}
+              isLoading={this.state.isLoading}
+              onClick={this.addTravel}
             >
               <FormattedMessage id={"global.addTravel"} />
             </BlueButtonLoading>
@@ -205,10 +231,9 @@ class TravelManager extends Component {
 const mapStateTopProps = (state) => {
   return {
     user: state.settings.user,
-  }
-}
+  };
+};
 
-const mapActionCreators = {
-}
+const mapActionCreators = {};
 
 export default connect(mapStateTopProps, mapActionCreators)(TravelManager);

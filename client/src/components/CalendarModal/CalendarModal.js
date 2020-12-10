@@ -7,13 +7,10 @@ import '../popup/index.scss';
 import './style/calendar.css'
 import Calendar from 'react-calendar';
 
-const CalendarForm = ({closeModal, handleChange, value, active}) => {
+const CalendarForm = ({handleChange, value, active}) => {
     return (
         <PopupViewContainer className={active ? 'active' : null }>
         <PopupCalendarContainer>
-            <IconContainer onClick={closeModal}>
-                <Icon src={closeIcon} />
-            </IconContainer>
             <TitleContainer>
                 <Title>
                     Date

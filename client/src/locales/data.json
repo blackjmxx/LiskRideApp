@@ -23,6 +23,7 @@
     "paramsPage.agreementText":" I agree to the Terms and Policies",
     "paramsPage.createAccount":"Create Account",
     "passRecoveryPage.enterEmai": "Enter you email",
+    "travel.onlyFrance":"Localtion not correctly selected, only France cities are available",
     "global.yes":"yes",
     "global.cancel":"cancel",
     "global.or":"or",

@@ -34,7 +34,8 @@ export default function settingsReducer (state = initState, action) {
               ...state.user,
               balance:action.data.balance,
               numberPlate:action.data.numberPlate,
-              carModel:action.data.carModel
+              carModel:action.data.carModel,
+              email:action.data.email
             },
           }
     case FETCH_USERPROFILE_FAILURE:{

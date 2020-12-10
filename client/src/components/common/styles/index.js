@@ -185,8 +185,6 @@ export const IconForm = styled(SemanticImage)`
     height: 50%
 `
 
-
-
 export const ButtonContainer2 = styled.div`
     display: flex;
     justify-content: center;
@@ -410,4 +408,20 @@ export const IconContainer = styled.div`
     width: 7%;
     justify-content: center;
     align-items: center;
+`
+
+export const ErrorContainer = styled.div`
+    height: 5%;
+    width: 80%;
+    display: flex;
+    align-items: flex-end;
+    padding-left: 15px;
+    flex-direction: row;
+`
+
+export const ErrorInformationContent = styled.div`
+    font-family: 'Avenir Next';
+    font-size: 12px;
+    line-height: 16px;
+    color: ${({theme}) => theme.red};
 `

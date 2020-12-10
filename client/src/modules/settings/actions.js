@@ -44,7 +44,7 @@ export const loadUserBalance = (address) => {
   return dispatch => {
       api.accounts.get({address: address})
         .then((response) => {
-          dispatch(receiveUserData({balance:response.data[0].balance, numberPlate:response.data[0].asset.numberPlate, carModel:response.data[0].asset.carModel}));
+          dispatch(receiveUserData({balance:response.data[0].balance, numberPlate:response.data[0].asset.numberPlate, carModel:response.data[0].asset.carModel, email:response.data[0].asset.email}));
         })
         .catch((err) => {
           console.log(err)

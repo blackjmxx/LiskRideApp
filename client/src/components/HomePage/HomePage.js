@@ -167,10 +167,10 @@ class HomePage extends Component {
         <CommonContainerView>
           {this.state.showCalendarModal && (
           <CalendarModal
-            closeModal={() => this.setState({ showCalendarModal: false })}
-            handleChange={(data) =>
+            handleChange={(data) =>{
               this.handleChange({ name: "pickUpDate", data })
-            }
+              this.setState({ showCalendarModal: false })
+            }}
           ></CalendarModal>
           )}
             <Notifications />
@@ -178,7 +178,6 @@ class HomePage extends Component {
                 <Image src={car} />
               </ImageContainer>
             <Container>
-
               <SecondInputContainer2>
                 <AlgoliaPlaces
                   key="destinationId"
