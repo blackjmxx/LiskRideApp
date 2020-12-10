@@ -132,7 +132,7 @@ class HomePage extends Component {
           this.setState({isLoading:false})
           
           let uniquResult = _.uniqBy(results, 'travelId');
-          this.props.updateTravels({travels:uniquResult})         
+          this.props.updateTravels({travels:uniquResult.filter(x =>  parseInt(x.availableSeatCount, 10) > 0)})         
           this.props.history.push("/home/results");
         });
       })

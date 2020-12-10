@@ -66,7 +66,7 @@ class BookTravelTransaction extends BaseTransaction {
   }
 
   //todo must be transform into number
-    if (!this.asset.seatCount || typeof this.asset.seatCount !== 'string') {
+  if (!this.asset.seatCount || typeof this.asset.seatCount !== 'string') {
       errors.push(
           new TransactionError(
               'Invalid "asset.seatCount" defined on transaction',
@@ -127,7 +127,7 @@ class BookTravelTransaction extends BaseTransaction {
     ) {
       errors.push(
         new TransactionError(
-          "Driver cannot book seat on his car",
+          "Driver cannot book seat on his own car",
           this.asset.travelId
         )
       );

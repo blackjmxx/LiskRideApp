@@ -423,12 +423,29 @@ export const ErrorContainer = styled.div`
     padding-left: 15px;
     flex-direction: row;
 `
+
+export const SuccesContainer = styled.div`
+    height: 5%;
+    width: 80%;
+    display: flex;
+    align-items: flex-end;
+    padding-left: 15px;
+    flex-direction: row;
+`
+
 export const ErrorInformationContent = styled.div`
     font-family: 'Avenir Next';
     font-size: 12px;
     line-height: 16px;
     color: ${({theme}) => theme.red};
 `
+export const SuccessInformationContent = styled.div`
+    font-family: 'Avenir Next';
+    font-size: 12px;
+    line-height: 16px;
+    color: ${({theme}) => theme.green};
+`
+
 export const ContentContainer = styled.div`
     display: flex;
     justify-content: center;

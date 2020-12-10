@@ -127,7 +127,7 @@ import {
     ) {
       errors.push(
         new TransactionError(
-          "Driver cannot book seat on his car",
+          "Driver cannot book seat on his own car",
           this.asset.travelId
         )
       );

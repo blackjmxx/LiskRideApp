@@ -32,7 +32,9 @@ class TravelResuls extends Component {
     mytravels: [],
     selectedTravel: -1,
     sealctedSeatCount:-1,
-    isBookingLoading:false
+    isBookingLoading:false,
+    errors:[],
+    isBookSucceed:false
   };
 
   todayNotifications = [
@@ -51,8 +53,7 @@ class TravelResuls extends Component {
   ];
 
   handleOpenBookModal = (id, travelIndex) => {
-    this.setState({ selectedTravel: travelIndex });
-    this.setState({ showTravelModal: true });
+    this.setState({ selectedTravel: travelIndex,  showTravelModal: true, isBookSucceed : false });
   };
 
   handleBook = () => {
@@ -66,7 +67,6 @@ class TravelResuls extends Component {
       let carId = travels[selectedTravel].carId
 
       let user = JSON.parse(getUser());
-
       const bookTravelTransaction = new BookTravelTransaction({
         asset: {
           passengerId: user.address,
@@ -82,17 +82,24 @@ class TravelResuls extends Component {
       api.transactions
         .broadcast(bookTravelTransaction.toJSON())
         .then((response) => {
-          this.setState({isBookingLoading:false})
-          this.setState({showTravelModal:false})
+          this.setState({isBookingLoading:false, isBookSucceed:true})
         })
         .catch((err) => {
-          this.setState({isBookingLoading:false})
-          this.setState({showTravelModal:false})
+          debugger
+          if(!Array.isArray(err.errors)){
+            this.setState({ isBookingLoading: false, errors: [err] });
+          } else {
+            this.setState({ isBookingLoading: false, errors: err.errors });
+          }
         });
     } else{
       console.log('error')
     }
   };
+
+  cancelModal = () => {
+    this.setState({ showTravelModal: false , errors:[]})
+  }
 
   handleChangeSeatCount = (e, { value }) => {
     this.setState({sealctedSeatCount:value})
@@ -100,19 +107,23 @@ class TravelResuls extends Component {
 
   render() {
     const { travels } = this.props;
-    const {selectedTravel, isBookingLoading} = this.state
+    const {selectedTravel, isBookingLoading, isBookSucceed} = this.state
+    const errors = this.state.errors.map((e, index) => <p key={index}>{e.message}</p>);
+
     return (
       <>
         <NotificationsViewContainer>
           {this.state.showTravelModal && (
             <BookModal
-              closeModal={() => this.setState({ showTravelModal: false })}
+              closeModal={this.cancelModal}
               travel={travels[selectedTravel]}
               availableSeatCount={travels[selectedTravel].availableSeatCount}
               handleAction={this.handleBook}
               handleChangeSeatCount={this.handleChangeSeatCount}
               isBookingLoading={isBookingLoading}
               driverAddress={travels[selectedTravel].carId}
+              errors={errors}
+              isBookSucceed={isBookSucceed}
             ></BookModal>
           )}
           <Link to="/home">

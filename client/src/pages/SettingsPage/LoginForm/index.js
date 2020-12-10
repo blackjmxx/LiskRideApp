@@ -82,7 +82,7 @@ class LoginForm extends Component {
   }
 
   render() {
-    const { error, isLoadingUser, isVerified = true } = this.props;
+    const { error, isLoadingUser } = this.props;
     
     return (
       <>
@@ -106,7 +106,6 @@ class LoginForm extends Component {
       <ErrorContainer>
         <ErrorInformationContent>
           {error && error.message}
-          {!isVerified && <FormattedMessage id={"global.notVerified"} />}
         </ErrorInformationContent>
       </ErrorContainer>
       { this.isLoginTabActive() ?
