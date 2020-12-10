@@ -248,6 +248,13 @@ export const Container = styled.div`
     justify-content: center;
     align-items: center;
 `
+export const ContainerTravelResult = styled.div`
+    display: flex;
+    width: 85%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+`
 
 export const LoginInputsContainer2 = styled.div`
     display: flex;
@@ -284,8 +291,6 @@ export const description = {
     textAlign: 'center',
     color: Theme.gray80,
 };
-
-
 
 export const ImageContainer = styled.div`
   display: flex;
@@ -418,10 +423,43 @@ export const ErrorContainer = styled.div`
     padding-left: 15px;
     flex-direction: row;
 `
-
 export const ErrorInformationContent = styled.div`
     font-family: 'Avenir Next';
     font-size: 12px;
     line-height: 16px;
     color: ${({theme}) => theme.red};
+`
+export const ContentContainer = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    width: 85%;
+    height: 10%;
+`
+export const Title = styled.div`
+    display: flex;
+    font-family: 'Avenir Next';
+    font-size: 20px;
+    line-height: 28px;
+    font-weight: bold;
+    color: ${({theme}) => theme.gray};
+    text-align: center;
+`
+
+export const TitleContainer = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    width: 75%;
+    height: 14%;
+`
+export const TitleContent = styled.div`
+    font-family: 'Avenir Next';
+    font-size: 20px;
+    color: ${({theme}) => theme.red};
+    text-align: center;
+`
+export const Content = styled(TitleContent)`
+    font-size: 16px;
+    color: ${({theme}) => theme.gray80};
 `

@@ -153,7 +153,6 @@ export const WarningImageContainer = styled.div`
     align-items: center;
 `
 
-
 export const Icon = styled(SemanticImage)`
     width: 100%;
     height: 100%;
@@ -166,4 +165,17 @@ export const ItemsContainer = styled.div`
   width: 85%;
   justify-content: flex-start;
   align-items: flex-start;
+`
+
+export const Image = styled(SemanticImage)`
+    width: 70%;
+    height: 60%;
+    display: flex;
+`
+export const ImageContainer = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    width: 85%;
+    height: 57%;
 `

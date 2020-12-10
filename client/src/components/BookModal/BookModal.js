@@ -44,7 +44,7 @@ const options = []
         </PopupContent>
         <SecondInputContainer>
             Seat count :
-            <Select placeholder='Select your country' options={options} onChange={handleChangeSeatCount}/>
+            <Select placeholder='Select seat number ' options={options} onChange={handleChangeSeatCount}/>
         </SecondInputContainer>
 
         <ButtonContainer>

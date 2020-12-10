@@ -4,11 +4,19 @@ import { getUser } from "../../utils/storage";
 import { Rating, Button } from 'semantic-ui-react'
 import EndTravelTransaction from "../../transactions/end-travel";
 import { networkIdentifier , dateToLiskEpochTimestamp} from "../../utils";
+import emptyNotifications from '../../assets/images/notificationsEmpty.svg'
+import { FormattedMessage } from 'react-intl';
 
 import {
   IconContainer,
   Icon,
-  NotificationsViewContainer2
+  NotificationsViewContainer2,
+  ImageContainer,
+  Image,
+  TitleContainer,
+  ContentContainer,
+  Title,
+  Content
 } from "../../components/common/styles";
 
 import { api } from '../../components/Api';
@@ -101,6 +109,7 @@ class TravelEnd extends Component {
             <Icon src={closeIcon} />
           </IconContainer>
         </Link>
+          {travelDriverBalance.length === 0 && travelPassengerBalances.length === 0 && <EmptyContent />}
           <div>
             {travelDriverBalance.map((tdb, i) => {
               return <div>
@@ -117,7 +126,7 @@ class TravelEnd extends Component {
                         <Button disabled={tdb.amountTravel === '0'} onClick={() => this.rateAndWidthDraw(tdb.passengerAddress)}>Rate and widthdraw</Button>
                     </div>
             })}
-             {travelPassengerBalances.map((tdb, i) => {
+            {travelPassengerBalances.map((tdb, i) => {
               return <div>
                         <div>
                           User:{tdb.passengerAddress}
@@ -137,6 +146,27 @@ class TravelEnd extends Component {
       </NotificationsViewContainer2>
     );
   }
+}
+
+const EmptyContent = () => { 
+  return (
+    <>
+    <ImageContainer>
+        <Image src={emptyNotifications} />
+    </ImageContainer>
+    <TitleContainer>
+        <Title>
+            <FormattedMessage id={"travel.emptySeatTitle"} />
+        </Title>
+    </TitleContainer>
+    <ContentContainer>
+        <Content>
+            <FormattedMessage id={"travel.emptySeatDescription"} />
+        </Content>
+    </ContentContainer>
+  </>
+
+  )
 }
 
 const mapStateTopProps = (state) => {

@@ -24,6 +24,8 @@
     "paramsPage.createAccount":"Create Account",
     "passRecoveryPage.enterEmai": "Enter you email",
     "travel.onlyFrance":"Localtion not correctly selected, only France cities are available",
+    "travel.emptySeatTitle":"You dont't have any booked seats",
+    "travel.emptySeatDescription":"We will let you know when you will have!",
     "global.yes":"yes",
     "global.cancel":"cancel",
     "global.or":"or",
