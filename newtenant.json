@@ -1,141 +1,143 @@
-[{
-    "Databases":  {
-                      "Recruiting":  {
-                                         "Server":  "FRQUSQLDEMO-S01.talentsoft.cloud",
-                                         "Name":  "demo_main_aldv21_RECRUITING"
-                                     },
-                      "Career":  {
-                                     "Server":  "FRQUSQLDEMO-S01.talentsoft.cloud",
-                                     "Name":  "demo_main_aldv21_CAREER"
-                                 },
-                      "OnGoingPerformance":  {
-                                                 "Server":  "FRQUSQLDEMO-S01.talentsoft.cloud",
-                                                 "Name":  "CC_DEMO_QUFR"
-                                             }
-                  },
-    "Enabled":  true,
-    "Name":  "aldv21",
-    "Sites":  [
-                  {
-                      "siteId":  "1984",
-                      "label":  null,
-                      "cleanLabel":  null,
-                      "urlType":  null,
-                      "foName":  null,
-                      "url":  "https://aldv21-internetasia.demo.talent-soft.com/main/fo/",
-                      "siteName":  "FoApplicant_1984",
-                      "siteType":  "FoApplicant"
-                  },
-                  {
-                      "siteId":  "1018",
-                      "label":  null,
-                      "cleanLabel":  null,
-                      "urlType":  null,
-                      "foName":  null,
-                      "url":  "https://aldv21.demo.talent-soft.com/main/rh/",
-                      "siteName":  "BoRecruiting_1018",
-                      "siteType":  "BoRecruiting"
-                  },
-                  {
-                      "siteId":  "1018",
-                      "label":  null,
-                      "cleanLabel":  null,
-                      "urlType":  null,
-                      "foName":  null,
-                      "url":  "https://aldv21.demo.talent-soft.com/main/xml/",
-                      "siteName":  "FoXml_1018",
-                      "siteType":  "FoXml"
-                  },
-                  {
-                      "siteId":  "1986",
-                      "label":  null,
-                      "cleanLabel":  null,
-                      "urlType":  null,
-                      "foName":  null,
-                      "url":  "https://aldv21-internetgermany.demo.talent-soft.com/main/fo/",
-                      "siteName":  "FoApplicant_1986",
-                      "siteType":  "FoApplicant"
-                  },
-                  {
-                      "siteId":  "1017",
-                      "label":  null,
-                      "cleanLabel":  null,
-                      "urlType":  null,
-                      "foName":  null,
-                      "url":  "https://aldv21-internet.demo.talent-soft.com/main/fo/",
-                      "siteName":  "FoApplicant_1017",
-                      "siteType":  "FoApplicant"
-                  },
-                  {
-                      "siteId":  "1019",
-                      "label":  null,
-                      "cleanLabel":  null,
-                      "urlType":  null,
-                      "foName":  null,
-                      "url":  "https://aldv21-internalvacancies.demo.talent-soft.com/main/fo/",
-                      "siteName":  "FoEmployee_1019",
-                      "siteType":  "FoEmployee"
-                  },
-                  {
-                      "siteId":  "1985",
-                      "label":  null,
-                      "cleanLabel":  null,
-                      "urlType":  null,
-                      "foName":  null,
-                      "url":  "https://aldv21-internetusa.demo.talent-soft.com/main/fo/",
-                      "siteName":  "FoApplicant_1985",
-                      "siteType":  "FoApplicant"
-                  },
-                  {
-                      "siteId":  "",
-                      "label":  null,
-                      "cleanLabel":  null,
-                      "urlType":  null,
-                      "foName":  null,
-                      "url":  "https://aldv21.demo.talent-soft.com/main/career/",
-                      "siteName":  "Career",
-                      "siteType":  "Career"
-                  },
-                  {
-                      "siteId":  "",
-                      "label":  null,
-                      "cleanLabel":  null,
-                      "urlType":  null,
-                      "foName":  null,
-                      "url":  "https://aldv21demo-cc.talent-soft.com/",
-                      "siteName":  "OnGoingPerformance",
-                      "siteType":  "OnGoingPerformance"
-                  },
-                  {
-                      "siteId":  "",
-                      "label":  null,
-                      "cleanLabel":  null,
-                      "urlType":  null,
-                      "foName":  null,
-                      "url":  "https://aldv21.agp-demo.talent-soft.com/",
-                      "siteName":  "RecAgencyPortal",
-                      "siteType":  "RecAgencyPortal"
-                  },
-                  {
-                      "siteId":  null,
-                      "label":  null,
-                      "cleanLabel":  null,
-                      "urlType":  null,
-                      "foName":  null,
-                      "url":  "https://dts-aldv21.elmg.net",
-                      "siteName":  null,
-                      "siteType":  "Lms"
-                  },
-                  {
-                      "siteId":  null,
-                      "label":  null,
-                      "cleanLabel":  null,
-                      "urlType":  null,
-                      "foName":  null,
-                      "url":  "https://dts-aldv21.e-learning-suite.com",
-                      "siteName":  null,
-                      "siteType":  "Lcms"
-                  }
-              ],
-    "Kind":  "Coupled"
-}]
+[
+    {
+        "Databases": {
+            "Recruiting": {
+                "Server": "FRQUSQLDEMO-S01.talentsoft.cloud",
+                "Name": "demo_main_aldv21_RECRUITING"
+            },
+            "Career": {
+                "Server": "FRQUSQLDEMO-S01.talentsoft.cloud",
+                "Name": "demo_main_aldv21_CAREER"
+            },
+            "OnGoingPerformance": {
+                "Server": "FRQUSQLDEMO-S01.talentsoft.cloud",
+                "Name": "CC_DEMO_QUFR"
+            }
+        },
+        "Enabled": true,
+        "Name": "aldv21",
+        "Sites": [
+            {
+                "siteId": "1984",
+                "label": null,
+                "cleanLabel": null,
+                "urlType": null,
+                "foName": null,
+                "url": "https://aldv21-internetasia.demo.talent-soft.com/main/fo/",
+                "siteName": "FoApplicant_1984",
+                "siteType": "FoApplicant"
+            },
+            {
+                "siteId": "1018",
+                "label": null,
+                "cleanLabel": null,
+                "urlType": null,
+                "foName": null,
+                "url": "https://aldv21.demo.talent-soft.com/main/rh/",
+                "siteName": "BoRecruiting_1018",
+                "siteType": "BoRecruiting"
+            },
+            {
+                "siteId": "1018",
+                "label": null,
+                "cleanLabel": null,
+                "urlType": null,
+                "foName": null,
+                "url": "https://aldv21.demo.talent-soft.com/main/xml/",
+                "siteName": "FoXml_1018",
+                "siteType": "FoXml"
+            },
+            {
+                "siteId": "1986",
+                "label": null,
+                "cleanLabel": null,
+                "urlType": null,
+                "foName": null,
+                "url": "https://aldv21-internetgermany.demo.talent-soft.com/main/fo/",
+                "siteName": "FoApplicant_1986",
+                "siteType": "FoApplicant"
+            },
+            {
+                "siteId": "1017",
+                "label": null,
+                "cleanLabel": null,
+                "urlType": null,
+                "foName": null,
+                "url": "https://aldv21-internet.demo.talent-soft.com/main/fo/",
+                "siteName": "FoApplicant_1017",
+                "siteType": "FoApplicant"
+            },
+            {
+                "siteId": "1019",
+                "label": null,
+                "cleanLabel": null,
+                "urlType": null,
+                "foName": null,
+                "url": "https://aldv21-internalvacancies.demo.talent-soft.com/main/fo/",
+                "siteName": "FoEmployee_1019",
+                "siteType": "FoEmployee"
+            },
+            {
+                "siteId": "1985",
+                "label": null,
+                "cleanLabel": null,
+                "urlType": null,
+                "foName": null,
+                "url": "https://aldv21-internetusa.demo.talent-soft.com/main/fo/",
+                "siteName": "FoApplicant_1985",
+                "siteType": "FoApplicant"
+            },
+            {
+                "siteId": "",
+                "label": null,
+                "cleanLabel": null,
+                "urlType": null,
+                "foName": null,
+                "url": "https://aldv21.demo.talent-soft.com/main/career/",
+                "siteName": "Career",
+                "siteType": "Career"
+            },
+            {
+                "siteId": "",
+                "label": null,
+                "cleanLabel": null,
+                "urlType": null,
+                "foName": null,
+                "url": "https://aldv21demo-cc.talent-soft.com/",
+                "siteName": "OnGoingPerformance",
+                "siteType": "OnGoingPerformance"
+            },
+            {
+                "siteId": "",
+                "label": null,
+                "cleanLabel": null,
+                "urlType": null,
+                "foName": null,
+                "url": "https://aldv21.agp-demo.talent-soft.com/",
+                "siteName": "RecAgencyPortal",
+                "siteType": "RecAgencyPortal"
+            },
+            {
+                "siteId": null,
+                "label": null,
+                "cleanLabel": null,
+                "urlType": null,
+                "foName": null,
+                "url": "https://dts-aldv21.elmg.net",
+                "siteName": null,
+                "siteType": "Lms"
+            },
+            {
+                "siteId": null,
+                "label": null,
+                "cleanLabel": null,
+                "urlType": null,
+                "foName": null,
+                "url": "https://dts-aldv21.e-learning-suite.com",
+                "siteName": null,
+                "siteType": "Lcms"
+            }
+        ],
+        "Kind": "Coupled"
+    }
+]
