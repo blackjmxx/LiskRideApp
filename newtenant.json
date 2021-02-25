@@ -1,0 +1,139 @@
+[
+    {
+        "FirmName": "ALFREDTEAM",
+        "Name": "testmacthst",
+        "Databases": [
+            {
+                "Server": "FRQUSQLDEMO-S01.talentsoft.cloud",
+                "Name": "demo_main_testmacthst_RECRUITING",
+                "ConnectionString": "Data Source=FRQUSQLDEMO-S01.talentsoft.cloud;initial catalog=demo_main_testmacthst_RECRUITING; User ID=user_demomasterint; Pwd=CjVXb2eEWXvJLwHn; MultipleActiveResultSets=True",
+                "OlapConnectionString": "Data Source=FRQUDEMOBI-S01.talentsoft.cloud;Catalog=demo_main_testmacthst_CAREER",
+                "DatabaseType": 2
+            },
+            {
+                "Server": "FRQUSQLDEMO-S01.talentsoft.cloud",
+                "Name": "demo_main_testmacthst_CAREER",
+                "ConnectionString": "Data Source=FRQUSQLDEMO-S01.talentsoft.cloud;initial catalog=demo_main_testmacthst_CAREER; User ID=user_demomasterint; Pwd=CjVXb2eEWXvJLwHn; MultipleActiveResultSets=True",
+                "OlapConnectionString": "Data Source=FRQUDEMOBI-S01.talentsoft.cloud;Catalog=demo_main_testmacthst_CAREER",
+                "DatabaseType": 1
+            },
+            {
+                "Server": "FRQUSQLDEMO-S01.talentsoft.cloud",
+                "Name": "CC_DEMO_QUFR",
+                "ConnectionString": "Data Source=FRQUSQLDEMO-S01.talentsoft.cloud;initial catalog=CC_DEMO_QUFR;Integrated Security=true;MultipleActiveResultSets=True",
+                "OlapConnectionString": "",
+                "DatabaseType": 5
+            },
+            {
+                "Server": "FRQUSQLDEMO-S01.talentsoft.cloud",
+                "Name": "MATCH_DEMO_QUFR",
+                "ConnectionString": "Server=FRQUSQLDEMO-S01.talentsoft.cloud;Database=MATCH_DEMO_QUFR;User ID=user_demomatch;Password=qgYUftpN63WH;ConnectRetryCount=0",
+                "OlapConnectionString": "",
+                "DatabaseType": 10
+            },
+            {
+                "Server": "FRQUSQLDEMO-S01.talentsoft.cloud",
+                "Name": "SKILLS_DEMO",
+                "ConnectionString": "Server=FRQUSQLDEMO-S01.talentsoft.cloud;Database=SKILLS_DEMO;User ID=user_skills_demo;Password=wkYS(4)9[46gL;;MultipleActiveResultSets=True;Connect Timeout=5",
+                "OlapConnectionString": "",
+                "DatabaseType": 11
+            },
+            {
+                "Server": null,
+                "Name": null,
+                "ConnectionString": "url=https://frqudskelmaster.talentsoft.cloud:9200;index-suffix=index-1;login=skills;password=43sk4Q18pNPijB0f",
+                "OlapConnectionString": "",
+                "DatabaseType": 12
+            }
+        ],
+        "Environment": 7,
+        "Sites": [
+            {
+                "SiteName": "FoApplicant_1984",
+                "Url": "https://testmacthst-internetasia.demo.talent-soft.com/main/fo/",
+                "SiteId": 1984,
+                "Type": 1,
+                "SiteType": 3
+            },
+            {
+                "SiteName": "BoRecruiting_1018",
+                "Url": "https://testmacthst.demo.talent-soft.com/main/rh/",
+                "SiteId": 1018,
+                "Type": 1,
+                "SiteType": 2
+            },
+            {
+                "SiteName": "FoXml_1018",
+                "Url": "https://testmacthst.demo.talent-soft.com/main/xml/",
+                "SiteId": 1018,
+                "Type": 1,
+                "SiteType": 4
+            },
+            {
+                "SiteName": "FoApplicant_1986",
+                "Url": "https://testmacthst-internetgermany.demo.talent-soft.com/main/fo/",
+                "SiteId": 1986,
+                "Type": 1,
+                "SiteType": 3
+            },
+            {
+                "SiteName": "FoApplicant_1017",
+                "Url": "https://testmacthst-internet.demo.talent-soft.com/main/fo/",
+                "SiteId": 1017,
+                "Type": 1,
+                "SiteType": 3
+            },
+            {
+                "SiteName": "FoEmployee_1019",
+                "Url": "https://testmacthst-internalvacancies.demo.talent-soft.com/main/fo/",
+                "SiteId": 1019,
+                "Type": 1,
+                "SiteType": 7
+            },
+            {
+                "SiteName": "FoApplicant_1985",
+                "Url": "https://testmacthst-internetusa.demo.talent-soft.com/main/fo/",
+                "SiteId": 1985,
+                "Type": 1,
+                "SiteType": 3
+            },
+            {
+                "SiteName": "Career",
+                "Url": "https://testmacthst.demo.talent-soft.com/main/career/",
+                "SiteId": null,
+                "Type": 1,
+                "SiteType": 1
+            },
+            {
+                "SiteName": "OnGoingPerformance",
+                "Url": "https://testmacthstdemo-cc.talent-soft.com/",
+                "SiteId": null,
+                "Type": 1,
+                "SiteType": 10
+            },
+            {
+                "SiteName": "RecAgencyPortal",
+                "Url": "https://testmacthst.agp-demo.talent-soft.com/",
+                "SiteId": null,
+                "Type": 1,
+                "SiteType": 12
+            },
+            {
+                "SiteName": "Match",
+                "Url": "https://testmacthstdemo-match.profile.talent-soft.com/",
+                "SiteId": null,
+                "Type": 1,
+                "SiteType": 14
+            },
+            {
+                "SiteName": "Skills",
+                "Url": "https://testmacthstdemo.skills.talent-soft.com/",
+                "SiteId": null,
+                "Type": 1,
+                "SiteType": 15
+            }
+        ],
+        "Kind": null,
+        "Enable": true
+    }
+]
